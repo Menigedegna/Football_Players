@@ -8,6 +8,7 @@ import StarRatingChart from "../components/StarRatingChart"
 import ServerDown from "./ServerDown"
 import RenderLoader from "../components/RenderLoader"
 import React, { useState, useEffect } from 'react';
+import playerAvatar from "../img/avatar/PlayerAvatar.png";
 
 
 const HomePage = () => {
@@ -82,7 +83,7 @@ const HomePage = () => {
                         {/* PLAYER AVATAR IMAGE AND STAR CHART*/}
                         <div className="pageTitle">{barData.name}'s skills</div>
                         <div className="playerAvatarContainer">
-                            <img src='/static/avatar/PlayerAvatar.png' height={150} className="PlayerAvatarImage" alt="player's avatar"/>
+                            <img src={playerAvatar} height={150} className="PlayerAvatarImage" alt="player's avatar"/>
                             <StarRatingChart data={barData.rating} />
                         </div>
 

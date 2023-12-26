@@ -1,4 +1,4 @@
-import pageNotFoundImage from "../img/PageNotFound.png";
+import pageNotFoundImage from "../img/pageNotFound/PageNotFound.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 

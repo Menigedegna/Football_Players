@@ -1,8 +1,9 @@
 import * as d3 from 'd3';
 import React, { useEffect } from 'react';
 import {attributeForStarChart} from "./CommonFunctions"
+import starImage from "../img/ratings/star.png";
 
-const SERVER_PATH = '/static/ratings/star.png';
+//const SERVER_PATH = '/static/ratings/star.png';
 
 
 const StarRatingChart = ({ data }) => {
@@ -34,7 +35,7 @@ const StarRatingChart = ({ data }) => {
       .attr('x', (_, i) =>130+ i * (starSize + starPadding))
       .attr('width', starSize)
       .attr('height', starSize)
-      .attr('xlink:href', SERVER_PATH);
+      .attr('xlink:href', starImage);
 
     // Append text labels to each group
     starGroups.append('text')

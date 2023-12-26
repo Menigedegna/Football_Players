@@ -1,4 +1,4 @@
-import serverDownImage from "../img/ServerDown.png";
+import serverDownImage from "../img/serverDown/ServerDown.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
