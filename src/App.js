@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import {HashRouter, Routes, Route, Navigate} from 'react-router-dom';
+import NavBar from './NavBar';
+import HomePage from './pages/HomePage';
+import CountryPage from './pages/CountryPage';
+import ClubPage from './pages/ClubPage';
+import NotFoundPage from './pages/notFoundPage';
+import { Footer } from './Footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <div className="App">
+        <NavBar />
+        <div id="page-body">
+          <Routes>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/Countries" element={<CountryPage />}></Route>
+            <Route path="/Clubs" element={<ClubPage />}></Route>
+            {/*<Route path='*' element={<Navigate replace to='/404'/>} />*/}
+            <Route path="*" element={<NotFoundPage />}></Route>
+          </Routes>
+        </div>
+        <Footer />
+      </div>
+    </HashRouter>
   );
 }
 
