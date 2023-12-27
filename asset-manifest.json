@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/players_attribute_frontend/static/css/main.c0dca1fd.css",
-    "main.js": "/players_attribute_frontend/static/js/main.d3714523.js",
+    "main.css": "/players_attribute_frontend/static/css/main.cd4749b5.css",
+    "main.js": "/players_attribute_frontend/static/js/main.ee0079d0.js",
     "static/js/787.c92e0a14.chunk.js": "/players_attribute_frontend/static/js/787.c92e0a14.chunk.js",
     "static/media/PageNotFound.png": "/players_attribute_frontend/static/media/PageNotFound.ca0de0ddbf05563b4203.png",
     "static/media/star.png": "/players_attribute_frontend/static/media/star.169056cbcebb5fee3e6a.png",
     "static/media/ServerDown.png": "/players_attribute_frontend/static/media/ServerDown.bbb30bcafd16bdfdd080.png",
     "static/media/PlayerAvatar.png": "/players_attribute_frontend/static/media/PlayerAvatar.c32108eb782c4e11024c.png",
     "index.html": "/players_attribute_frontend/index.html",
-    "main.c0dca1fd.css.map": "/players_attribute_frontend/static/css/main.c0dca1fd.css.map",
-    "main.d3714523.js.map": "/players_attribute_frontend/static/js/main.d3714523.js.map",
+    "main.cd4749b5.css.map": "/players_attribute_frontend/static/css/main.cd4749b5.css.map",
+    "main.ee0079d0.js.map": "/players_attribute_frontend/static/js/main.ee0079d0.js.map",
     "787.c92e0a14.chunk.js.map": "/players_attribute_frontend/static/js/787.c92e0a14.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c0dca1fd.css",
-    "static/js/main.d3714523.js"
+    "static/css/main.cd4749b5.css",
+    "static/js/main.ee0079d0.js"
   ]
 }
