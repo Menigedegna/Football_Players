@@ -1,6 +1,6 @@
 import RenderTreeMapPage from '../components/RenderTreeMapPage'
 
-const SERVER_PATH = 'api/countries/';
+const SERVER_PATH = 'https://mariamawit.pythonanywhere.com/api/countries/';
 
 const CountryPage = () => {
    /**

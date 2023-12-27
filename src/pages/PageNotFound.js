@@ -1,4 +1,4 @@
-import pageNotFoundImage from "../img/pageNotFound/PageNotFound.png";
+import pageNotFoundImage from "../img/PageNotFoundFolder/PageNotFoundImage.png";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
@@ -11,7 +11,7 @@ const NotFoundPage = () => {
     return (
         <div className="pageNotFoundContainer">
             <LazyLoadImage src={pageNotFoundImage} className="pageNotFoundImage"
-                alt="Profile picture"
+                alt="Page is not found"
             />
          </div>
     );

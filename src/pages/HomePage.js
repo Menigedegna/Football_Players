@@ -10,6 +10,7 @@ import RenderLoader from "../components/RenderLoader"
 import React, { useState, useEffect } from 'react';
 import playerAvatar from "../img/avatar/PlayerAvatar.png";
 
+const SERVER_PATH = 'https://mariamawit.pythonanywhere.com/api/';
 
 const HomePage = () => {
    /**
@@ -27,7 +28,7 @@ const HomePage = () => {
 
     // Get {list} data from server
     useEffect(() => {
-    axios.get('api/')
+    axios.get(SERVER_PATH)
     .then(response => {
     setList(response.data);
     const formatedData = SelectFields(response.data[0], requiredAttributes);

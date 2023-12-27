@@ -1,6 +1,6 @@
 import RenderTreeMapPage from '../components/RenderTreeMapPage'
 
-const SERVER_PATH = "api/clubs/";
+const SERVER_PATH = "https://mariamawit.pythonanywhere.com/api/clubs/";
 
 const ClubPage = () => {
    /**
