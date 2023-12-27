@@ -7,10 +7,17 @@ import {SelectFields, requiredAttributes, attributeForStarChart} from "../compon
 import StarRatingChart from "../components/StarRatingChart"
 import ServerDown from "./ServerDown"
 import RenderLoader from "../components/RenderLoader"
+import {CalculatePlotSize} from '../components/CommonFunctions'
 import React, { useState, useEffect } from 'react';
+
 import playerAvatar from "../img/avatar/PlayerAvatar.png";
 
+
 const SERVER_PATH = 'https://mariamawit.pythonanywhere.com/api/';
+const MAX_WIDTH = 400;
+const MAX_HEIGHT = 700;
+const WEIGHT_OBJECT = {width: 0.85, height: 0.75}
+
 
 const HomePage = () => {
    /**
@@ -25,6 +32,9 @@ const HomePage = () => {
     const [barData, setBarData] = useState({name:"Player", profile:{}, rating:[]});
     // isLoading {boolean}, default set to true, changes to false when useEffect completes  loading data from server
     const [isLoading, setIsLoading] = useState(true);
+    // barplot {object} contains width and height of barplot
+    var [width, height] = CalculatePlotSize(MAX_WIDTH, MAX_HEIGHT, WEIGHT_OBJECT);
+    const [barplot, setBarplot] = useState({width:width, height: height});
 
     // Get {list} data from server
     useEffect(() => {
@@ -41,6 +51,16 @@ const HomePage = () => {
     .finally(()=>{
         setIsLoading(false);
     });
+    }, []);
+
+    //add event listener to adjust barplot size when window is resized
+    useEffect(() => {
+    //Adjust plot size
+    const AdjustPlotSize = () => {
+        var [width, height] = CalculatePlotSize(MAX_WIDTH, MAX_HEIGHT, WEIGHT_OBJECT);
+        setBarplot({width: width, height: height});
+    }
+      window.addEventListener("resize", AdjustPlotSize, false);
     }, []);
 
     // create function to update list, to be served as props for child components
@@ -91,8 +111,8 @@ const HomePage = () => {
                         {/* BARPLOT*/}
                         <div className="barplotContainer">
                                 <Barplot className="skillBarplot"
-                                    width={400}
-                                    height={700}
+                                    width={barplot.width}
+                                    height={barplot.height}
                                     data={barData.profile}
                                 />
                         </div>

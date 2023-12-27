@@ -42,22 +42,30 @@ const RenderTableHeader = ({attributes, list, updateList, updateKey, tableKey}) 
    //Function sorts list of object containing 'attribute' in the direction given by 'direction'
    const sortData = (attribute, direction, data) => {
         data.sort(function (a, b) {
-            if (a[attribute] > b[attribute]) {
-                return direction==="up"?1:-1;
+            if (direction==="up") {
+                if (a[attribute] === null || b[attribute] === null ) {
+                    return a[attribute]  === null?1:-1;
+                }else{
+                    return a[attribute].toString().localeCompare(b[attribute].toString())
+                }
+            }else{
+                if (a[attribute] === null || b[attribute] === null ) {
+                    return b[attribute]  === null?1:-1;
+                }else{
+                    return b[attribute].toString().localeCompare(a[attribute].toString())
+                }
             }
-            if (b[attribute] > a[attribute]) {
-                return direction==="up"?-1:1;
-            }
-            return 0;
         });
         return data;
     }
+
 
     //Function handles sort button submit by sorting data and updating state variables
     const handleSubmit = ({attribute}) => {
         //sort list
         let sortingDirection = "";
-        let tableKeyComponents = tableKey.split("_")
+        let tableKeyComponents = tableKey.split("-")
+        console.log(list[0][attribute]);
         if ( tableKeyComponents[0] === attribute & tableKeyComponents[1] === "up" ){
             list = sortData(attribute, "down", list)
             sortingDirection = "down";
@@ -68,7 +76,7 @@ const RenderTableHeader = ({attributes, list, updateList, updateKey, tableKey}) 
 
         //update state variables list and tableKey
         updateList(list);
-        updateKey(attribute+"_"+sortingDirection);
+        updateKey(attribute+"-"+sortingDirection);
     }
 
     return attributes.map((attribute, id) => {

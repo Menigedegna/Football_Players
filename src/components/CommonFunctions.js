@@ -23,3 +23,22 @@ export const requiredAttributes = ['Rating', 'Ball_Control', 'Dribbling', 'Marki
 // constant containing categorical attributes used for star chart
 export const attributeForStarChart = ["Weak_foot", "Skill_Moves"]
 
+
+//calculate plot width and height proportion to media size
+export const CalculatePlotSize = (maxWidth, maxHeight, weightObject) => {
+  var width = 0;
+  var height = 0;
+
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight
+
+  if (windowWidth>=800){
+    width = maxWidth;
+    height = maxHeight;
+  }else{
+    width = windowWidth*weightObject.width;
+    height = windowHeight*weightObject.height;
+  }
+  return [width, height];
+}
+

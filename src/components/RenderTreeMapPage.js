@@ -3,12 +3,11 @@ import React, { useState, useEffect } from 'react';
 import RenderTreeMap from './RenderTreeMap'
 import ServerDown from "../pages/ServerDown"
 import RenderLoader from "./RenderLoader"
+import {CalculatePlotSize} from './CommonFunctions'
 
 const MAX_WIDTH = 1000;
 const MAX_HEIGHT = 500;
-const WIDTH_WEIGHT = 0.95;
-const HEIGHT_WEIGHT = 0.85;
-
+const WEIGHT_OBJECT = {width: 0.95, height: 0.85}
 
 const RenderTreeMapPage = ({serverPath, dataType}) => {
    /**
@@ -18,33 +17,22 @@ const RenderTreeMapPage = ({serverPath, dataType}) => {
    * @returns {ReactNode} A React element which renders a title and a treemap
    */
 
-    //calculate treemap width and height proportion to media size
-    const calculateTreeSize = (windowWidth, windowHeight) => {
-      var width = 0;
-      var height = 0;
-      if (windowWidth>=800){
-        width = MAX_WIDTH;
-        height = MAX_HEIGHT;
-      }else{
-        width = windowWidth*WIDTH_WEIGHT;
-        height = windowHeight*HEIGHT_WEIGHT;
-      }
-      return [width, height];
-    }
-
     //create state variables
     const [tree, setTree] = useState();
     const [isLoading, setIsLoading] = useState(true);
-    var [width, height] = calculateTreeSize(window.innerWidth, window.innerHeight);
+    var [width, height] = CalculatePlotSize(MAX_WIDTH, MAX_HEIGHT, WEIGHT_OBJECT);
     const [mapWidth, setMapWidth] = useState({width:width, height: height});
 
-    //create function to set mapWidth state variable
-    const setTreemapWidth = () => {
-        var [width, height] = calculateTreeSize(window.innerWidth, window.innerHeight);
+
+    //add event listener to adjust treemap size when window is resized
+    useEffect(() => {
+    //Adjust plot size
+    const AdjustPlotSize = () => {
+        var [width, height] = CalculatePlotSize(MAX_WIDTH, MAX_HEIGHT, WEIGHT_OBJECT);
         setMapWidth({width: width, height: height});
     }
-    //add event listener to call setTreemapWidth function window is resized
-    window.addEventListener('resize', setTreemapWidth);
+      window.addEventListener("resize", AdjustPlotSize, false);
+    }, []);
 
     // Fetch data from server
     useEffect(() => {
