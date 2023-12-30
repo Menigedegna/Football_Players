@@ -33,18 +33,31 @@ const StarRatingChart = ({ data }) => {
       .enter()
       .append('svg:image')
       .attr('x', (_, i) =>130+ i * (starSize + starPadding))
+      .attr('y', -1)
       .attr('width', starSize)
       .attr('height', starSize)
       .attr('xlink:href', starImage);
 
+    starGroups.append('rect')
+      .attr('x', 15)
+      .attr('y', (starSize / 2) -15)
+      .attr('width', '90px')
+      .attr('height', '26px')
+      .attr('fill', 'black')
+      .attr('opacity', 1)
+      .attr('rx', 5)
+
     // Append text labels to each group
     starGroups.append('text')
       .attr('x', 100)
-      .attr('y', starSize / 2)
+      .attr('y', (starSize / 2))
       .attr("font-size", "1em")
+      .attr('fill', 'white')
       .attr('text-anchor', 'end')
       .attr('alignment-baseline', 'middle')
       .text((d, i) => attributeForStarChart[i].split("_").join(" ")); // You can replace this with your actual labels
+
+
 
   }, [data]);
 

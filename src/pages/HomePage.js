@@ -75,6 +75,8 @@ const HomePage = () => {
 
      // create function to update barData when a player is selected in table, to be served as props for child components
     const selectPlayer = (data) => setBarData(data);
+    // variable storing barplot position on screen
+    const barPosition = barplot.width === MAX_WIDTH? 'on your right →': 'below the table ↓';
     if(isLoading){
         return <RenderLoader />
     }else{
@@ -87,7 +89,7 @@ const HomePage = () => {
                         <div className="pageTitle">Players Attributes</div>
                         <div className="instructionContainer"> Select players' attributes you would like to view in the table below ↓↓↓</div>
                         <SelectAttribute updateAttribute={handleChange} attributes={attributes} />
-                        <div className="instructionContainer">Click on the player's name in the table to view his skills → </div>
+                        <div className="instructionContainer">Click on the player's name in the table to view his skills {barPosition} </div>
 
                         {/* TABLE*/}
                         <RenderTable
