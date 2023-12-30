@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Football-Players/static/css/main.22e79b89.css",
-    "main.js": "/Football-Players/static/js/main.2aa3cb2b.js",
-    "static/js/787.bfa0f0f2.chunk.js": "/Football-Players/static/js/787.bfa0f0f2.chunk.js",
-    "static/media/PageNotFoundImage.png": "/Football-Players/static/media/PageNotFoundImage.ca0de0ddbf05563b4203.png",
-    "static/media/star.png": "/Football-Players/static/media/star.169056cbcebb5fee3e6a.png",
-    "static/media/ServerDown.png": "/Football-Players/static/media/ServerDown.bbb30bcafd16bdfdd080.png",
-    "static/media/PlayerAvatar.png": "/Football-Players/static/media/PlayerAvatar.c32108eb782c4e11024c.png",
-    "index.html": "/Football-Players/index.html",
-    "main.22e79b89.css.map": "/Football-Players/static/css/main.22e79b89.css.map",
-    "main.2aa3cb2b.js.map": "/Football-Players/static/js/main.2aa3cb2b.js.map",
-    "787.bfa0f0f2.chunk.js.map": "/Football-Players/static/js/787.bfa0f0f2.chunk.js.map"
+    "main.css": "/Football_Players/static/css/main.22e79b89.css",
+    "main.js": "/Football_Players/static/js/main.98aabaca.js",
+    "static/js/787.bfa0f0f2.chunk.js": "/Football_Players/static/js/787.bfa0f0f2.chunk.js",
+    "static/media/PageNotFoundImage.png": "/Football_Players/static/media/PageNotFoundImage.ca0de0ddbf05563b4203.png",
+    "static/media/star.png": "/Football_Players/static/media/star.169056cbcebb5fee3e6a.png",
+    "static/media/ServerDown.png": "/Football_Players/static/media/ServerDown.bbb30bcafd16bdfdd080.png",
+    "static/media/PlayerAvatar.png": "/Football_Players/static/media/PlayerAvatar.c32108eb782c4e11024c.png",
+    "index.html": "/Football_Players/index.html",
+    "main.22e79b89.css.map": "/Football_Players/static/css/main.22e79b89.css.map",
+    "main.98aabaca.js.map": "/Football_Players/static/js/main.98aabaca.js.map",
+    "787.bfa0f0f2.chunk.js.map": "/Football_Players/static/js/787.bfa0f0f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.22e79b89.css",
-    "static/js/main.2aa3cb2b.js"
+    "static/js/main.98aabaca.js"
   ]
 }
