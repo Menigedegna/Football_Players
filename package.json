@@ -1,7 +1,7 @@
 {
   "name": "Football_Players",
   "version": "0.1.0",
-  "homepage": "https://menigedegna.github.io/Football-Players",
+  "homepage": "https://menigedegna.github.io/Football_Players",
   "private": true,
   "dependencies": {
     "@react-spring/web": "^9.7.3",
