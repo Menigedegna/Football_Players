@@ -52,6 +52,7 @@ const StarRatingChart = ({ data }) => {
       .attr('x', 100)
       .attr('y', (starSize / 2))
       .attr("font-size", "1em")
+      .attr('font-family', 'var(--instruction-font)')
       .attr('fill', 'white')
       .attr('text-anchor', 'end')
       .attr('alignment-baseline', 'middle')

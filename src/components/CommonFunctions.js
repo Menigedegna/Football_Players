@@ -2,8 +2,13 @@
     This file contains functions and constants used by more than one component
 */
 
-// Function to select a subset of fields from a dictionary
 export const SelectFields = (dictionary, fieldList) => {
+   /**
+   * @description Function to select a subset of fields from a dictionary
+   * @param {object} dictionary
+   * @param {object} fieldList list of dictionary keys
+   * @returns {object} dictionary with keys=fieldList
+   */
     var result = {};
     fieldList.forEach(function(field) {
         result[field] = dictionary[field];
@@ -24,8 +29,16 @@ export const requiredAttributes = ['Rating', 'Ball_Control', 'Dribbling', 'Marki
 export const attributeForStarChart = ["Weak_foot", "Skill_Moves"]
 
 
-//calculate plot width and height proportion to media size
+
 export const CalculatePlotSize = (maxWidth, maxHeight, weightObject) => {
+   /**
+   * @description Function calculateS plot width and height proportion to media size
+   * @param {number} maxWidth max width of plot
+   * @param {number} maxHeight max width of plot
+   * @param {object} weightObject {width: number, height: number} proportion of plot width/height compared to window size
+   * @param {string} field = 'CLUB_POSITION' or 'NATIONAL_POSITION'
+   * @returns {object} list containing width and height
+   */
   var width = 0;
   var height = 0;
 

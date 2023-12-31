@@ -2,8 +2,8 @@ import './App.css';
 import {HashRouter, Routes, Route, Navigate} from 'react-router-dom';
 import NavBar from './NavBar';
 import HomePage from './pages/HomePage';
-import CountryPage from './pages/CountryPage';
-import ClubPage from './pages/ClubPage';
+import RenderTreeMapPage from './pages/RenderTreeMapPage';
+import PlayersPositions from './pages/PositionPage';
 import NotFoundPage from './pages/PageNotFound';
 import { Footer } from './Footer';
 
@@ -16,8 +16,8 @@ function App() {
         <div id="page-body">
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
-            <Route path="/Countries" element={<CountryPage />}></Route>
-            <Route path="/Clubs" element={<ClubPage />}></Route>
+            <Route path="/Countries&Clubs" element={<RenderTreeMapPage />}></Route>
+            <Route path="/Positions" element={<PlayersPositions />}></Route>
             <Route path='/404' element={<NotFoundPage/>} />
             <Route path='*' element={<Navigate replace to='/404'/>} />
             {/*<Route path="*" element={<NotFoundPage />}></Route>*/}
