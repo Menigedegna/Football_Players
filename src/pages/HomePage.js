@@ -32,6 +32,7 @@ const HomePage = () => {
     const [barData, setBarData] = useState({name:"Player", profile:{}, rating:[]});
     // isLoading {boolean}, default set to true, changes to false when useEffect completes  loading data from server
     const [isLoading, setIsLoading] = useState(true);
+
     // barplot {object} contains width and height of barplot
     var [width, height] = CalculatePlotSize(MAX_WIDTH, MAX_HEIGHT, WEIGHT_OBJECT);
     const [barplot, setBarplot] = useState({width:width, height: height});
@@ -63,18 +64,11 @@ const HomePage = () => {
       window.addEventListener("resize", AdjustPlotSize, false);
     }, []);
 
-    // create function to update list, to be served as props for child components
-    const sortList = (data) => setList(data);
-
     // set attributes to be displayed on table by default
     const [attributes, setAttributes] = useState(['Name', 'Nationality', 'National_Position', 'National_Kit', 'Club',
         'Club_Position', 'Club_Kit', 'Height','Preffered_Foot']);
 
-    // create function to update attribute list, to be served as props for child components
-    const handleChange = (data) => setAttributes(data);
 
-     // create function to update barData when a player is selected in table, to be served as props for child components
-    const selectPlayer = (data) => setBarData(data);
     // variable storing barplot position on screen
     const barPosition = barplot.width === MAX_WIDTH? 'on your right →': 'below the table ↓';
     if(isLoading){
@@ -88,15 +82,15 @@ const HomePage = () => {
                     <div className="leftContainer">
                         <div className="pageTitle">Players Attributes</div>
                         <div className="instructionContainer"> Select players' attributes you would like to view in the table below ↓↓↓</div>
-                        <SelectAttribute updateAttribute={handleChange} attributes={attributes} />
+                        <SelectAttribute updateAttribute={setAttributes} attributes={attributes} />
                         <div className="instructionContainer">Click on the player's name in the table to view his skills {barPosition} </div>
 
                         {/* TABLE*/}
                         <RenderTable
                             attributes={attributes}
                             list={list}
-                            updateList={sortList}
-                            selectPlayer={selectPlayer}
+                            updateList={setList}
+                            selectPlayer={setBarData}
                             activePlayer={barData.name}
                             className="tableContainer"
                             />

@@ -17,6 +17,11 @@ var CLUB_POSITIONS = {};
 var NATIONAL_POSITIONS = {};
 
 const RenderPosition = ({list}) =>{
+   /**
+   * @description Function renders divs containing items in a grid display
+   * @param {object} dictionary containing players list for each field position {field-position: [players-names]}
+   * @returns {ReactNode} A React element which renders div component for each item in list
+   */
     return POSITIONS.map((position) => {
             return<div className='positionFields' key={position} style={{gridArea: position}}>
                        <div className='fieldLabels' id={position}>{position}</div>
@@ -115,6 +120,7 @@ const PlayersPositions = () => {
         if (list && image){
             return (
                 <>
+                {/* PAGE HEADER */}
                 <div className='pageHeader'>
                     <div className="pageTitle">Field Positions</div>
                     <ChooseData
@@ -125,12 +131,16 @@ const PlayersPositions = () => {
                     />
                 </div>
                 <div className='positionPage'>
+
+                {/* INSTRUCTION FOR USER */}
                 <div className='positionInstructions'>
                     <ul>
                     <li>Hover to view list of players at each position.</li>
                     <li>Click on Club / National button to view club /national positions.</li>
                     </ul>
                 </div>
+
+                {/* FIELD POSITIONS OVERLAYED ON SOCCER FIELD IMAGE*/}
                 <div className="fieldContainer">
                     <div className='imageContainer'>
                     <LazyLoadImage src={image} className="soccerFieldImage"

@@ -1,4 +1,8 @@
 const ChooseData = ({funcName, data, stateVar, label}) => {
+   /**
+   * @description This component allows user to choose data to be displayed in charts/plots
+   * @returns {ReactNode} A React element which renders buttons
+   */
     return(
         <div className='positionChoice'>
             <button className='choiceButton' onClick={() => funcName(data[0])}>
