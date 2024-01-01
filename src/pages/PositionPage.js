@@ -66,7 +66,7 @@ const PlayersPositions = () => {
     const [list, setList] = useState();
     // state variable containing currently used background image
     const [image, setImage] = useState();
-
+    const [mapWidth, setMapWidth] = useState();
 
     // isLoading {boolean}, default set to true, changes to false when useEffect completes  loading data from server
     const [isLoading, setIsLoading] = useState(true);
@@ -91,6 +91,7 @@ const PlayersPositions = () => {
     //Set state variable to CLUB_POSITIONS
     setList(CLUB_POSITIONS);
     window.innerWidth>=800?setImage(soccerField):setImage(soccerFieldPortrait);
+    window.innerWidth>=800?setMapWidth(900):setMapWidth('90%');
     })
     .catch(error => {
     console.log(error);
@@ -119,10 +120,21 @@ const PlayersPositions = () => {
     }else{
         if (list && image){
             return (
-                <>
+                <div className='positionPage'>
+
                 {/* PAGE HEADER */}
-                <div className='pageHeader'>
-                    <div className="pageTitle">Field Positions</div>
+                <div className="pageTitle">Field Positions</div>
+                <div className='pageHeader' style={{width: mapWidth}}>
+
+                    {/* INSTRUCTION FOR USER */}
+                    <div className='positionInstructions'>
+                        <p>
+                        Hover to view list of players at each position.<br/>
+                        Click on Club / National button to view club /national positions.
+                        </p>
+                    </div>
+
+                    {/* USER CAN INTERACT BY CHOOSING DATA */}
                     <ChooseData
                         funcName={setList}
                         data={[CLUB_POSITIONS, NATIONAL_POSITIONS]}
@@ -130,15 +142,8 @@ const PlayersPositions = () => {
                         label={['Club', 'National']}
                     />
                 </div>
-                <div className='positionPage'>
 
-                {/* INSTRUCTION FOR USER */}
-                <div className='positionInstructions'>
-                    <ul>
-                    <li>Hover to view list of players at each position.</li>
-                    <li>Click on Club / National button to view club /national positions.</li>
-                    </ul>
-                </div>
+
 
                 {/* FIELD POSITIONS OVERLAYED ON SOCCER FIELD IMAGE*/}
                 <div className="fieldContainer">
@@ -146,13 +151,13 @@ const PlayersPositions = () => {
                     <LazyLoadImage src={image} className="soccerFieldImage"
                         alt="Page is not found"
                     />
+                    <div class="overlay"></div>
                     </div>
                     <div className='positionsContainer'>
                         <RenderPosition list={list}/>
                     </div>
                 </div>
                </div>
-               </>
             );
         }else{
             return <ServerDown />

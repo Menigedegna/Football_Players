@@ -93,9 +93,15 @@ const RenderTreeMapPage = () => {
         if (tree){
             return (
                 <div className="treeMapPage">
-                    <div className='pageHeader'>
-                        <div className="pageTitle">
-                            {tree===CLUB_TREE?labels[0]:labels[1]}
+
+                    <div className="pageTitle">
+                        {tree===CLUB_TREE?labels[0]:labels[1]}
+                    </div>
+
+                    <div className='pageHeader' style={{width: mapWidth.width}}>
+                        {/* INSTRUCTION FOR USER */}
+                        <div className='positionInstructions'>
+                            <p>Click on Clubs / Countries button to view players list for each club / country.</p>
                         </div>
                         <ChooseData
                             funcName={setTree}
