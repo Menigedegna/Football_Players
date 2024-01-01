@@ -16,7 +16,30 @@ const POSITIONS = ['GK', 'SW', 'CB', 'DM', 'CAM', 'RM', 'LM', 'LB', 'LCB', 'RCB'
 var CLUB_POSITIONS = {};
 var NATIONAL_POSITIONS = {};
 
-const RenderPosition = ({list}) =>{
+
+const RenderPlayerList = ({players}) => {
+       /**
+       * @description Function renders list of players
+       * @param {object} players list of players for selected position
+       * @returns {ReactNode} A React element which renders list of players
+       */
+       return(
+         <div className='playersList'>
+            <span className='playerTitle'>Players</span>
+            <hr/>
+            {players.length>0
+            ?<ul>
+                {players.map((item, id)=><li key={id}>{item}</li>)}
+            </ul>
+            :<span className='noPlayers'>No players in database</span>
+            }
+        </div>
+        )
+
+}
+
+
+const RenderPosition = ({list, setPlayers}) =>{
    /**
    * @description Function renders divs containing items in a grid display
    * @param {object} dictionary containing players list for each field position {field-position: [players-names]}
@@ -24,17 +47,9 @@ const RenderPosition = ({list}) =>{
    */
     return POSITIONS.map((position) => {
             return<div className='positionFields' key={position} style={{gridArea: position}}>
-                       <div className='fieldLabels' id={position}>{position}</div>
-                       <div className='playersList'>
-                            <span className='playerTitle'>{position} Players</span>
-                            <hr/>
-                            {list[position].length>0
-                            ?<ul>
-                                {list[position].map((item, id)=><li key={id}>{item}</li>)}
-                            </ul>
-                            :<span className='noPlayers'>No players in database</span>
-                            }
-                        </div>
+                       <button className='fieldLabels' id={position} onClick={()=>setPlayers(list[position])}>
+                        {position}
+                        </button>
                    </div>
     });
 }
@@ -66,7 +81,10 @@ const PlayersPositions = () => {
     const [list, setList] = useState();
     // state variable containing currently used background image
     const [image, setImage] = useState();
+    // state variable containing current image width
     const [mapWidth, setMapWidth] = useState();
+    // state variable containing current players list for selected position
+    const [players, setPlayers] = useState();
 
     // isLoading {boolean}, default set to true, changes to false when useEffect completes  loading data from server
     const [isLoading, setIsLoading] = useState(true);
@@ -108,8 +126,10 @@ const PlayersPositions = () => {
         const windowWidth = window.innerWidth;
         if (windowWidth>=800){
             setImage(soccerField);
+            setMapWidth(900);
         }else{
             setImage(soccerFieldPortrait);
+            setMapWidth('90%');
         }
     }
       window.addEventListener("resize", AdjustIMageOrientation, false);
@@ -129,8 +149,8 @@ const PlayersPositions = () => {
                     {/* INSTRUCTION FOR USER */}
                     <div className='positionInstructions'>
                         <p>
-                        Hover to view list of players at each position.<br/>
-                        Click on Club / National button to view club /national positions.
+                        Click on Club / National button to view club /national positions → <br/>
+                        Click on buttons to view players list at each position ↓↓↓
                         </p>
                     </div>
 
@@ -151,10 +171,19 @@ const PlayersPositions = () => {
                     <LazyLoadImage src={image} className="soccerFieldImage"
                         alt="Page is not found"
                     />
-                    <div class="overlay"></div>
+
+                    {/* BACK OVERLAY WHICH RENDERS PLAYERS LIST FOR SELECTED POSITION*/}
+                    <div className="overlay">
+                        {players
+                        ?<RenderPlayerList players={players} />
+                        :<></>
+                        }
                     </div>
+                    </div>
+
+                    {/* FRONT OVERLAY RENDERS PLAYERS POSITIONS*/}
                     <div className='positionsContainer'>
-                        <RenderPosition list={list}/>
+                        <RenderPosition list={list} setPlayers={setPlayers}/>
                     </div>
                 </div>
                </div>

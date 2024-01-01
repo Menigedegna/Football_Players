@@ -6,8 +6,8 @@ import RenderLoader from "../components/RenderLoader"
 import {CalculatePlotSize} from '../components/CommonFunctions'
 import ChooseData from "../components/ChooseData"
 
-const MAX_WIDTH = 1000;
-const MAX_HEIGHT = 500;
+const MAX_WIDTH = 1200;
+const MAX_HEIGHT = 600;
 const WEIGHT_OBJECT = {width: 0.95, height: 0.85}
 
 const COUNTRY_SERVER_PATH = 'https://mariamawit.pythonanywhere.com/api/countries/';
@@ -99,9 +99,10 @@ const RenderTreeMapPage = () => {
                     </div>
 
                     <div className='pageHeader' style={{width: mapWidth.width}}>
+
                         {/* INSTRUCTION FOR USER */}
                         <div className='positionInstructions'>
-                            <p>Click on Clubs / Countries button to view players list for each club / country.</p>
+                            <p>Click on Clubs / Countries button to view players list for each club / country → </p>
                         </div>
                         <ChooseData
                             funcName={setTree}
@@ -110,6 +111,8 @@ const RenderTreeMapPage = () => {
                             label={labels}
                         />
                     </div>
+
+                        {/* RENDER TREE MAP */}
                     <RenderTreeMap key={mapWidth} data={tree} width={mapWidth.width} height={mapWidth.height} />
                 </div>
             )

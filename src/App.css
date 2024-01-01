@@ -420,6 +420,7 @@ th.fixColumn{
     opacity: 1;
 }
 
+
 /* ----------------------------------------------------------------------------------------------------- */
 /* POSITIONS */
 .positionPage{
@@ -452,13 +453,17 @@ th.fixColumn{
     height: 700px;
 }
 .overlay{
+  color: white;
+  font-family: var(--position-label);
   position: absolute;
-  top: 1%;
-  left: 1%;
-  width: 98%;
-  height: 98%;
-  /*background-color: rgba(255, 255, 255, 0.2);*/
-  background-color: rgba(0, 50, 0, 0.7);
+  background-color: rgba(0, 50, 0, 0.8);
+
+  top: 0;
+  left: 2%;
+  width: 95%;
+  height: 99%;
+  font-size: .5rem;
+  font-weight: thin;
 }
 .positionsContainer{
   position: absolute;
@@ -489,7 +494,6 @@ th.fixColumn{
     justify-content: flex-start;
     align-items: flex-start;
     border: 1px solid transparent;
-    position: relative;
 }
 .fieldLabels{
 
@@ -519,28 +523,17 @@ th.fixColumn{
     margin-left: 0;
 }
 .playersList{
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    transition: .5s ease;
-    opacity:0;
-    color: white;
-    font-family: var(--position-label);
-    font-size: .8rem;
-    padding: 20px;
-    text-align: left;
+    background: rgba(0, 0, 0, 0.4);
+    width: 20%;
+    padding: .8rem;
     border: 1px solid var(--yellow);
 }
-.positionFields:hover .playersList {
-  opacity: 1;
-}
-ul, li{
-    margin-left: 1px;
-    padding-left: 5px;
+
+ul{
+    padding-left: 15px;
 }
 .noPlayers{
-    color: var(--red);
+    color: var(--yellow);
 }
 
 @media(min-width: 800px){
@@ -578,6 +571,14 @@ ul, li{
         height: 2rem;
         margin-top: 1.5rem;
         margin-left: 2.7rem;
+    }
+    .overlay{
+      top: 1%;
+      left: 1%;
+      width: 98%;
+      height: 98%;
+      font-size: .8rem;
+      font-weight: thin;
     }
 
 }
