@@ -39,7 +39,7 @@ const RenderPlayerList = ({players}) => {
 }
 
 
-const RenderPosition = ({list, setPlayers}) =>{
+const RenderPosition = ({list, setPlayers, players}) =>{
    /**
    * @description Function renders divs containing items in a grid display
    * @param {object} dictionary containing players list for each field position {field-position: [players-names]}
@@ -47,7 +47,7 @@ const RenderPosition = ({list, setPlayers}) =>{
    */
     return POSITIONS.map((position) => {
             return<div className='positionFields' key={position} style={{gridArea: position}}>
-                       <button className='fieldLabels' id={position} onClick={()=>setPlayers(list[position])}>
+                       <button className={list[position]===players?'activeFieldLabels':'fieldLabels'} id={position} onClick={()=>setPlayers(list[position])}>
                         {position}
                         </button>
                    </div>
@@ -183,7 +183,7 @@ const PlayersPositions = () => {
 
                     {/* FRONT OVERLAY RENDERS PLAYERS POSITIONS*/}
                     <div className='positionsContainer'>
-                        <RenderPosition list={list} setPlayers={setPlayers}/>
+                        <RenderPosition list={list} setPlayers={setPlayers} players={players}/>
                     </div>
                 </div>
                </div>
