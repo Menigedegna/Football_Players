@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Football_Players/static/css/main.f4f1a92c.css",
-    "main.js": "/Football_Players/static/js/main.699db6b6.js",
+    "main.js": "/Football_Players/static/js/main.0ba48de6.js",
     "static/js/787.bfa0f0f2.chunk.js": "/Football_Players/static/js/787.bfa0f0f2.chunk.js",
     "static/media/PageNotFoundImage.png": "/Football_Players/static/media/PageNotFoundImage.ca0de0ddbf05563b4203.png",
     "static/media/star.png": "/Football_Players/static/media/star.169056cbcebb5fee3e6a.png",
@@ -11,11 +11,11 @@
     "static/media/soccerField.jpg": "/Football_Players/static/media/soccerField.dbf9fac46f0b309866dd.jpg",
     "index.html": "/Football_Players/index.html",
     "main.f4f1a92c.css.map": "/Football_Players/static/css/main.f4f1a92c.css.map",
-    "main.699db6b6.js.map": "/Football_Players/static/js/main.699db6b6.js.map",
+    "main.0ba48de6.js.map": "/Football_Players/static/js/main.0ba48de6.js.map",
     "787.bfa0f0f2.chunk.js.map": "/Football_Players/static/js/787.bfa0f0f2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f4f1a92c.css",
-    "static/js/main.699db6b6.js"
+    "static/js/main.0ba48de6.js"
   ]
 }
